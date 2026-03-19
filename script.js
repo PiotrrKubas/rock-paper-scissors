@@ -1,8 +1,5 @@
-// INITIALIZE consts rock, paper, scissors
-// USE Math.random to return 0 or 1 or 2
-// IF random = 0 return rock
-// IF random = 1 return paper
-// IF random = 2 return scissors
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice(){
     const rock = "rock";
@@ -25,4 +22,77 @@ function getComputerChoice(){
     }
 }
 
-console.log(getComputerChoice())
+function getHumanChoice(){
+    const humanChoice = window.prompt("input 'rock', 'paper' or 'scissors'")
+    return humanChoice.trim().toLowerCase();
+}
+
+function playRound(){
+    const humanSelection = getHumanChoice(); 
+    const computerSelection = getComputerChoice();
+    switch (humanSelection) {
+        case "rock":
+            if (computerSelection === "scissors")
+            {
+                console.log("You have won, rock beats scissors!")
+                humanScore++;
+            }
+            else if (computerSelection === "paper")
+            {
+                console.log("You have lost, paper beats rock!")
+                computerScore++;
+            }
+            else
+            {
+                console.log("It's a draw!")
+            }
+            break;
+        case "paper":
+            if (computerSelection === "rock")
+            {
+                console.log("You have won, paper beats rock!")
+                humanScore++;
+            }
+            else if (computerSelection === "scissors")
+            {
+                console.log("You have lost, scissors beat paper");
+                computerScore++;
+            }
+            else
+            {
+                console.log("It's a draw!")             
+            }
+            break;        
+        case "scissors":
+            if (computerSelection === "paper")
+            {
+                console.log("You have won, scissors beat paper");
+                humanScore++;
+                
+            }
+            else if (computerSelection === "rock")
+            {
+                console.log("You have lost, rock beat scissors");
+                computerScore++;
+            }
+            else
+            {
+                console.log("It's a draw!")
+            }
+            break;
+        default:
+            console.log("Incorrect input");
+            break;
+    }
+}
+
+
+
+function playGame(){
+    for (let index = 0; index < 5; index++) {
+        playRound();
+        console.log(`Human score: ${humanScore} Computer score: ${computerScore}`)
+    }
+}
+
+playGame();
