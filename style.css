@@ -1,0 +1,34 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	color: antiquewhite;
+}
+
+body {
+	background-color: rgb(32, 4, 133);
+	display: flex;
+	flex-direction: column;
+}
+
+.scores {
+	height: 200px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+button {
+	color: black;
+}
+
+.play-zone {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.player-choice,
+.computer-choice {
+	display: flex;
+	flex-direction: column;
+}
