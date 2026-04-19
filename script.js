@@ -1,5 +1,16 @@
 let humanScore = 0;
 let computerScore = 0;
+const humanScoreField = document.querySelector('.human-score');
+const computerScoreField = document.querySelector('.computer-score');
+const gameStatus = document.querySelector('.game-status');
+
+gameStart();
+
+function gameStart() {
+	humanScoreField.textContent = humanScore;
+	computerScoreField.textContent = computerScore;
+	gameStatus.textContent = 'Your move!';
+}
 
 function getComputerChoice() {
 	const rock = 'rock';

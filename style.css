@@ -7,14 +7,8 @@
 body {
 	background-color: rgb(32, 4, 133);
 	display: flex;
-	flex-direction: column;
-}
-
-.scores {
-	height: 200px;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+	flex-direction: row;
+	justify-content: space-evenly;
 }
 
 button {
@@ -25,17 +19,49 @@ button {
 	cursor: pointer;
 	overflow: hidden;
 	outline: none;
+	height: 100px;
+}
+
+img {
+	height: 100px;
+}
+/* SCORES */
+
+.score {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 20px;
+	padding-bottom: 50px;
+}
+
+/* PLAY ZONE */
+
+.flip {
+	transform: scaleX(-1);
 }
 
 .play-zone {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
+	flex-direction: column;
+	padding-top: 150px;
+	width: 350px;
 	align-items: center;
-}
+	margin: 10px;
 
-.player-choice,
-.computer-choice {
+	button {
+		all: initial;
+	}
+}
+.choice {
 	display: flex;
 	flex-direction: column;
+}
+
+.disable {
+	pointer-events: none;
+}
+
+.game-status {
+	font-size: 50px;
 }

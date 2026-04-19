@@ -10,31 +10,37 @@
 
 <body style="background-color: rgb(32, 4, 133);">
 
-    <div class="scores">
-        <div class="player-score">
-            <h2 class="score">Player</h2>
-            <h2 class="score">123</h2>
+    <div class="player">
+        <div class="score">
+            <p>HUMAN</p>
+            <p class="human-score"></p>
         </div>
-        <div class="computer-score">
-            <h2 class="score">Computer</h2>
-            <h2 class="score">123</h2>
+
+        <div class="choice flip">
+            <button><img src="./rock.png" alt="Image of rock"></button>
+            <button><img src="./paper.png" alt="Image of paper"></button>
+            <button><img src="./scissors.png" alt="Image of scissors"></button>
+
         </div>
     </div>
 
     <div class="play-zone">
-        <div class="player-choice">
-            <button><img src="./rock.png" alt="Image of rock"></button>
-            <button><img src="./paper.png" alt="Image of paper"></button>
-            <button><img src="./scissors.png" alt="Image of scissors"></button>
+        <p class="game-status">Winner</p>
+        <button>Next round</button>
+    </div>
 
+    <div class="computer">
+        <div class="score">
+            <p>COMPUTER</p>
+            <p class="computer-score"></p>
         </div>
-        <p class="winner">Winner</p>
-        <div class="computer-choice">
-            <button><img src="./rock.png" alt="Image of rock"></button>
-            <button><img src="./paper.png" alt="Image of paper"></button>
-            <button><img src="./scissors.png" alt="Image of scissors"></button>
+        <div class="choice">
+            <button class="disable"><img src="./rock.png" alt="Image of rock"></button>
+            <button class="disable"><img src="./paper.png" alt="Image of paper"></button>
+            <button class="disable"><img src="./scissors.png" alt="Image of scissors"></button>
         </div>
     </div>
+
 
 
     <script src="./script.js"></script>
