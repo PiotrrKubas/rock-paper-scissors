@@ -3,8 +3,12 @@ let computerScore = 0;
 const humanScoreField = document.querySelector('.human-score');
 const computerScoreField = document.querySelector('.computer-score');
 const gameStatus = document.querySelector('.game-status');
+const btn = document.querySelectorAll('.player-button');
 
 gameStart();
+for (const i of btn) {
+	i.addEventListener('click', () => playRound(i));
+}
 
 function gameStart() {
 	humanScoreField.textContent = humanScore;
@@ -28,57 +32,44 @@ function getComputerChoice() {
 	}
 }
 
-function getHumanChoice() {
-	const humanChoice = window.prompt("input 'rock', 'paper' or 'scissors'");
-	return humanChoice.trim().toLowerCase();
-}
-
-function playRound() {
-	const humanSelection = getHumanChoice();
+function playRound(choice) {
+	const humanSelection = choice.id;
 	const computerSelection = getComputerChoice();
 	switch (humanSelection) {
 		case 'rock':
 			if (computerSelection === 'scissors') {
-				console.log('You have won, rock beats scissors!');
+				gameStatus.textContent = 'You have won!';
 				humanScore++;
 			} else if (computerSelection === 'paper') {
-				console.log('You have lost, paper beats rock!');
+				gameStatus.textContent = 'You have lost!';
 				computerScore++;
 			} else {
-				console.log("It's a draw!");
+				gameStatus.textContent = "It's a draw!";
 			}
 			break;
 		case 'paper':
 			if (computerSelection === 'rock') {
-				console.log('You have won, paper beats rock!');
+				gameStatus.textContent = 'You have won!';
 				humanScore++;
 			} else if (computerSelection === 'scissors') {
-				console.log('You have lost, scissors beat paper');
+				gameStatus.textContent = 'You have lost!';
 				computerScore++;
 			} else {
-				console.log("It's a draw!");
+				gameStatus.textContent = "It's a draw!";
 			}
 			break;
 		case 'scissors':
 			if (computerSelection === 'paper') {
-				console.log('You have won, scissors beat paper');
+				gameStatus.textContent = 'You have won!';
 				humanScore++;
 			} else if (computerSelection === 'rock') {
-				console.log('You have lost, rock beat scissors');
+				gameStatus.textContent = 'You have lost!';
 				computerScore++;
 			} else {
-				console.log("It's a draw!");
+				gameStatus.textContent = "It's a draw!";
 			}
 			break;
-		default:
-			console.log('Incorrect input');
-			break;
 	}
-}
-
-function playGame() {
-	for (let index = 0; index < 5; index++) {
-		playRound();
-		console.log(`Human score: ${humanScore} Computer score: ${computerScore}`);
-	}
+	humanScoreField.textContent = humanScore;
+	computerScoreField.textContent = computerScore;
 }
