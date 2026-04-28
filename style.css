@@ -1,14 +1,14 @@
 * {
 	margin: 0px;
 	padding: 0px;
-	color: antiquewhite;
+	color: white;
 }
 
 body {
-	background-color: rgb(32, 4, 133);
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
+	background-color: gray;
 }
 
 button {
@@ -29,7 +29,16 @@ button {
 .player-button:hover {
 	scale: 110%;
 	transform: rotate(5deg);
-	filter: sepia() saturate(4) hue-rotate(312deg) brightness(80%) opacity(5);
+}
+
+.player-choice {
+	filter: brightness(0) saturate(100%) invert(24%) sepia(97%) saturate(1969%)
+		hue-rotate(95deg) brightness(95%) contrast(105%);
+}
+
+.computer-choice {
+	filter: brightness(0) saturate(100%) invert(12%) sepia(53%) saturate(6025%)
+		hue-rotate(349deg) brightness(108%) contrast(103%);
 }
 
 img {
