@@ -5,15 +5,48 @@ const computerScoreField = document.querySelector('.computer-score');
 const gameStatus = document.querySelector('.game-status');
 const btn = document.querySelectorAll('.player-button');
 
-gameStart();
+roundStart();
 for (const i of btn) {
 	i.addEventListener('click', () => playRound(i));
 }
 
-function gameStart() {
+function roundStart() {
 	humanScoreField.textContent = humanScore;
 	computerScoreField.textContent = computerScore;
 	gameStatus.textContent = 'Your move!';
+}
+
+function roundEnd() {
+	for (const i of btn) {
+		i.classList.add('disable');
+	}
+}
+
+function playRound(choice) {
+	const humanSelection = choice.id;
+	const computerSelection = getComputerChoice();
+	showChoices(choice, computerSelection);
+	checkWinner(humanSelection, computerSelection);
+
+	humanScoreField.textContent = humanScore;
+	computerScoreField.textContent = computerScore;
+	roundEnd();
+}
+
+function showChoices(choice, computerSelection) {
+	choice.classList.add('player-choice');
+	let computerChoice = '';
+	if (computerSelection === 'rock') {
+		computerChoice = document.getElementById('computer-rock');
+	}
+	if (computerSelection === 'paper') {
+		computerChoice = document.getElementById('computer-paper');
+	}
+	if (computerSelection === 'scissors') {
+		computerChoice = document.getElementById('computer-scissors');
+	}
+
+	computerChoice.classList.add('computer-choice');
 }
 
 function getComputerChoice() {
@@ -32,9 +65,7 @@ function getComputerChoice() {
 	}
 }
 
-function playRound(choice) {
-	const humanSelection = choice.id;
-	const computerSelection = getComputerChoice();
+function checkWinner(humanSelection, computerSelection) {
 	switch (humanSelection) {
 		case 'rock':
 			if (computerSelection === 'scissors') {
@@ -70,6 +101,4 @@ function playRound(choice) {
 			}
 			break;
 	}
-	humanScoreField.textContent = humanScore;
-	computerScoreField.textContent = computerScore;
 }
