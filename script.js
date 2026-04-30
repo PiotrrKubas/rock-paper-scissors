@@ -4,21 +4,46 @@ const humanScoreField = document.querySelector('.human-score');
 const computerScoreField = document.querySelector('.computer-score');
 const gameStatus = document.querySelector('.game-status');
 const btn = document.querySelectorAll('.player-button');
+const nextRound = document.getElementById('next-round');
 
-roundStart();
 for (const i of btn) {
 	i.addEventListener('click', () => playRound(i));
 }
-
+nextRound.addEventListener('click', () => roundStart());
 function roundStart() {
-	humanScoreField.textContent = humanScore;
-	computerScoreField.textContent = computerScore;
+	if (humanScore >= 3 || computerScore >= 3) {
+		humanScore = 0;
+		computerScore = 0;
+		humanScoreField.textContent = humanScore;
+		computerScoreField.textContent = computerScore;
+	}
 	gameStatus.textContent = 'Your move!';
+	nextRound.classList.add('disable');
+	document.querySelector('.player-choice').classList.remove('player-choice');
+	document
+		.querySelector('.computer-choice')
+		.classList.remove('computer-choice');
+
+	let disabled = document.querySelectorAll('.disable');
+	for (const d of disabled) {
+		d.classList.remove('disable');
+	}
 }
 
 function roundEnd() {
 	for (const i of btn) {
 		i.classList.add('disable');
+	}
+	humanScoreField.textContent = humanScore;
+	computerScoreField.textContent = computerScore;
+	nextRound.classList.remove('disable');
+
+	if (humanScore >= 3) {
+		alert("You've won the entire game, good job,");
+	}
+
+	if (computerScore >= 3) {
+		alert("You've lost the entire game, better luck next time!");
 	}
 }
 
@@ -27,9 +52,6 @@ function playRound(choice) {
 	const computerSelection = getComputerChoice();
 	showChoices(choice, computerSelection);
 	checkWinner(humanSelection, computerSelection);
-
-	humanScoreField.textContent = humanScore;
-	computerScoreField.textContent = computerScore;
 	roundEnd();
 }
 

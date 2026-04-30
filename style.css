@@ -67,11 +67,19 @@ img {
 	width: 350px;
 	align-items: center;
 	margin: 10px;
-
-	button {
-		all: initial;
-	}
 }
+
+#next-round {
+	color: white;
+	background-color: darkgray;
+	border: none;
+	cursor: pointer;
+	overflow: hidden;
+	outline: none;
+	height: 50px;
+	width: 150px;
+}
+
 .choice {
 	display: flex;
 	flex-direction: column;
